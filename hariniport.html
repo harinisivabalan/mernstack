@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harini's Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            background-color: #121212;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        h1, h2, h3 {
+            margin: 0;
+        }
+
+        /* Header Section */
+        header {
+            background: #1e1e1e;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            color: #e63946;
+        }
+
+        nav a {
+            color: #f1faee;
+            margin-left: 20px;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            color: #e63946;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('your-photo.jpg') no-repeat center/cover;
+            position: relative;
+            text-align: center;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        .hero h1,
+        .hero p,
+        .hero a {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #e63946;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #f1faee;
+        }
+
+        .hero a {
+            background: #e63946;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #fff;
+            border-radius: 25px;
+            transition: background 0.3s;
+        }
+
+        .hero a:hover {
+            background: #f77f82;
+        }
+
+        /* About Section */
+        .about {
+            padding: 50px 20px;
+            background: #1e1e1e;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #e63946;
+        }
+
+        .about p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #f1faee;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 50px 20px;
+            background: #121212;
+            text-align: center;
+        }
+
+        .skills h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #e63946;
+        }
+
+        .skills ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skills li {
+            font-size: 1.1rem;
+            color: #f1faee;
+            margin-bottom: 10px;
+        }
+
+        /* Certifications Section */
+        .certifications {
+            padding: 50px 20px;
+            background: #1e1e1e;
+            text-align: center;
+        }
+
+        .certifications h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #e63946;
+        }
+
+        .certifications ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .certifications li {
+            font-size: 1.1rem;
+            color: #f1faee;
+            margin-bottom: 10px;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: #121212;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .projects h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #e63946;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .project {
+            background: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+        }
+
+        .project img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 15px;
+        }
+
+        .project-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #e63946;
+        }
+
+        .project-content p {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: #f1faee;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 50px 20px;
+            background: #1e1e1e;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #e63946;
+        }
+
+        .contact p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #f1faee;
+        }
+
+        .contact a {
+            background: #e63946;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 25px;
+            transition: background 0.3s;
+        }
+
+        .contact a:hover {
+            background: #f77f82;
+        }
+
+        /* Footer */
+        footer {
+            background: #121212;
+            color: #f1faee;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Harini's Portfolio</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Hi, I'm Harini</h1>
+        <p>A Passionate Developer and Designer</p>
+        <a href="#contact">Get in Touch</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>I am a creative and dedicated professional specializing in modern web development and user-centric design. My mission is to build impactful solutions that bring ideas to life. Let's create something amazing together!</p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2>My Skills</h2>
+        <ul>
+            <li>HTML5</li>
+            <li>JavaScript</li>
+            <li>Python</li>
+            <li>UI/UX Design</li>
+            <li>Java</li>
+            <li>C & C++</li>
+        </ul>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+        <h2>Certifications</h2>
+        <ul>
+            <li>Certified Python developer - Infosys</li>
+            <li>UI/UX Design Specialist - Udemy</li>
+            <li>Advanced Java - Codecademy</li>
+        </ul>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <div class="project">
+                <img src="20 Best Korean BBQ Restaurants In New York City You Need to Try.jfif" alt="Project 1">
+                <div class="project-content">
+                    <h3>Project 1</h3>
+                    <p>Restaurent ordering System</p>
+                </div>
+            </div>
+            <div class="project">
+                <img src="India seems to be gaining as attractive investment point_ SBI Ecowrap.jfif" alt="Project 2">
+                <div class="project-content">
+                    <h3>Project 2</h3>
+                    <p>Bank Management System</p>
+                </div>
+            </div>
+            <div class="project">
+                <img src="The Ultimate Guide to Bookshops in York.jfif" alt="Project 3">
+                <div class="project-content">
+                    <h3>Project 3</h3>
+                    <p>Library Management System</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <p>If you'd like to collaborate or just say hi, feel free to reach out!</p>
+        <a href="mailto:harinisivabalanoffl@gmail.com">Email Me</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Harini. All rights reserved.
+    </footer>
+</body>
+
+</html>

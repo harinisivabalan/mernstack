@@ -1,0 +1,75 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Sticky Headers</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      z-index: 10;
+      transition: all 0.3s ease;
+    }
+
+    .content-section {
+      padding: 50px;
+      height: 500px; /* To allow scrolling */
+      border: 1px solid #ccc;
+    }
+
+    .active {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header" id="header1">Header 1</div>
+<div class="content-section" id="section1">
+  <p>Content for Section 1. Scroll down to see Header 2 take over.</p>
+</div>
+
+<div class="header" id="header2">Header 2</div>
+<div class="content-section" id="section2">
+  <p>Content for Section 2. Scroll down to see Header 3 take over.</p>
+</div>
+
+<div class="header" id="header3">Header 3</div>
+<div class="content-section" id="section3">
+  <p>Content for Section 3. Scroll back up to see headers change.</p>
+</div>
+
+<script>
+  const headers = document.querySelectorAll('.header');
+  const sections = document.querySelectorAll('.content-section');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          headers.forEach((header) => header.classList.remove('active'));
+          const headerId = entry.target.id.replace('section', 'header');
+          document.getElementById(headerId).classList.add('active');
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+</script>
+
+</body>
+</html>
